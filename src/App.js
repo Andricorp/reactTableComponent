@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
 import Table from "./Table.js"
+import { Provider } from 'react-redux'
+// import store from './createStore'
 
 
-class App extends Component{
+import { createStore, applyMiddleware } from 'redux';
+import { reducer as formReducer } from 'redux-form'
+
+import thunk from 'redux-thunk';
+// import axios from 'axios';
+
+import redusers from './redusers';
+
+const store = createStore(
+  redusers,
+  // window.INITIAL_STATE, 
+  applyMiddleware(thunk)
+);
+
+// store.subscribe(()=>console.log(store.getState()))
+
+class App extends Component {
+
+
 
   render() {
     return (
-      <Table/>
+      <Provider store={store}>
+        <Table />
+      </Provider>
     )
   }
 }
