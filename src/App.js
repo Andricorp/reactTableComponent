@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Table from "./Table.js"
+import Search from "./Search.js"
 import { Provider } from 'react-redux'
 // import store from './createStore'
 
@@ -19,7 +20,7 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-// store.subscribe(()=>console.log(store.getState()))
+store.subscribe(()=>console.log(store.getState()))
 
 class App extends Component {
 
@@ -28,7 +29,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+      <section>
+      <Search/>
         <Table />
+
+      </section>
       </Provider>
     )
   }
