@@ -6,8 +6,6 @@ export default function(state = {
         // if(action.status ==="RESOLVED")
         console.log('action in reducer ' , action)
             return {...state, arr: action.payload|| false};
-        // case 'GET_FROM_TABLE': 
-        //     return {...state, arr: action.payload|| false};
             
         default:
             return state;

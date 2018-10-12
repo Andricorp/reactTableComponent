@@ -5,9 +5,40 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux';
+import { reducer as formReducer } from 'redux-form'
+import thunk from 'redux-thunk';
+import {reducers} from './reducers';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+
+import { AUTHENTICATED } from './actions/actions';
+
+
+const user = localStorage.getItem('user');
+if(user) {
+  store.dispatch({ type: AUTHENTICATED });
+}
+
+
+
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk)
+);
+
+store.subscribe(() => console.log(store.getState()))
+
+ReactDOM.render((
+    <Provider store = {store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    
+    </Provider>
+), document.getElementById('root'))
+
 serviceWorker.unregister();
+
+
