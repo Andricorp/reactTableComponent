@@ -1,13 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
 
-export const AUTHENTICATED = 'authenticated_user';
-export const UNAUTHENTICATED = 'unauthenticated_user';
-export const AUTHENTICATION_ERROR = 'authentication_error';
+// import { AUTHENTICATED, AUTHENTICATION_ERROR } from '../constants';
 
 
-const actionPending = () => ({ type: 'SET_TABLE', status: 'PENDING', payload: null, error: null })
-const actionResolved = payload => ({ type: 'SET_TABLE', status: 'RESOLVED', payload, error: null })
-const actionRejected = error => ({ type: 'SET_TABLE', status: 'REJECTED', payload: null, error })
+
+// const actionPending = () => ({ type: 'SET_TABLE', status: 'PENDING', payload: null, error: null })
+// const actionResolved = payload => ({ type: 'SET_TABLE', status: 'RESOLVED', payload, error: null })
+// const actionRejected = error => ({ type: 'SET_TABLE', status: 'REJECTED', payload: null, error })
 
 
 export const setTable = (input) => async (dispatch ) => {

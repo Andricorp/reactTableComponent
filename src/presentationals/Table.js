@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 // import './App.css';
 import { Router, Route, Link, Switch } from 'react-router-dom';
 
-import { connect } from 'react-redux';
-import { setTable } from '../actions/actions'
+
+
+// import { connect } from 'react-redux';
+// import { setTable } from '../actions/actions'
 
 const thValue = new Set(["name", "language", "genres", "status", "rating"])
 
@@ -35,13 +37,11 @@ class Th extends Component {
 
   render() {
     return (
-      // <div>
       <th>
         {
           this.props.name
         }
       </th>
-      // </div>
 
     )
   }
@@ -55,21 +55,6 @@ class Tr extends Component {
   }
 
 
-  // getCollect(){
-  //   var sayings = new Map();
-
-  //   for (let key in this.props.columns) {
-  //     if (thValue.has(key)) {
-
-  // obj[key] = this.props.columns[key];
-
-  // sayings.set(key, obj[key])
-  // // return <Td key = {key} name={obj[key]} ></Td>
-
-  //     }
-  //   }
-  //   return sayings
-  // }
 
   getArr(setArr) {
     let arr = []
@@ -109,14 +94,22 @@ class Tr extends Component {
 
 
 class Table extends Component {
+  constructor(props){
+    super(props)
+  }
+
 
   makeColumns() {
-    console.log('Post data', this.props.postData)
+    console.log('props data', this.props)
 
     if (this.props.postData !== null && this.props.postData !== false) {
       if (this.props.postData.length > 0) {
         let data = this.props.postData
-        console.log('Post data !', data)
+        console.log('IsPostdata !', data)
+    // if (this.props!== null && this.props !== false) {
+    //   if (this.props.length > 0) {
+    //     let data = this.props;
+    //     console.log('IsPostdata !', data)
         return data.map((row, i) =>
           // {
           // if(!i){
@@ -133,9 +126,9 @@ class Table extends Component {
   }
 
 
-  componentWillMount() {
-    this.props.setTable('girls')
-  }
+  // componentWillMount() {
+  //   this.props.setTable('girls')
+  // }
 
   render() {
     // if(!this.props.postData=== false){
@@ -151,13 +144,12 @@ class Table extends Component {
 }
 
 
-function mapStateToProps(state) {
-  return {
-    // postData: state.arr
-    postData: state.posts.arr
-  };
-};
+// function mapStateToProps(state) {
+//   return {
+//     postData: state.posts.arr
+//   };
+// };
 
-Table = connect(mapStateToProps, { setTable })(Table)
+// Table = connect(mapStateToProps, { setTable })(Table)
 
 export default Table

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setTable } from '../actions/actions'
+// import { setTable } from '../actions/actions'
 
 class Details extends Component {
     cash = []
@@ -11,23 +11,30 @@ class Details extends Component {
 
     getArr(setArr) {
 
+        // console.log('to returnjbvgfchfdjchgv,hj', setArr)
 
         let arr = []
 
         for (let key in setArr) {
-            arr.push(setArr[key]);
+           
 
-            if (key === 'rating') {
-                return
+            if (arr.length>9) {
+                continue
+            }
+            else{
+                arr.push(setArr[key]);
             }
         }
-        console.log(arr)
+        // console.log('to return JHHVKHBHJBKHHVJGJGCGJCGF', arr)
         return arr
     }
 
     setDivValue() {
         if (this.props.postData) {
+            // console.log(this.props.postData)
             this.cash = this.props.postData[this.props.match.params.id].show
+            // console.log(this.cash)
+            console.log(this.getArr(this.cash))
             return this.getArr(this.cash).map((el, id) => <div key={id}>{el}</div>)
         } else {
             return console.log(this.cash)

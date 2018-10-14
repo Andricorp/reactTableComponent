@@ -9,8 +9,8 @@ import Details from './pages/Details';
 import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 // import { register } from './serviceWorker';
-import requireAuth from './components/hoc/require_auth';
-import noRequireAuth from './components/hoc/no_require_auth';
+import requireAuth from './presentationals/hoc/require_auth';
+import noRequireAuth from './presentationals/hoc/no_require_auth';
 
 
 

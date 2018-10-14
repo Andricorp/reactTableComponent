@@ -1,11 +1,16 @@
-export default function(state = {
+const intialState = {
     arr: null
-}, action){
+};
+
+export default function(state = intialState, action){
     switch(action.type){
         case 'SET_TABLE': 
         // if(action.status ==="RESOLVED")
         console.log('action in reducer ' , action)
-            return {...state, arr: action.payload|| false};
+        // return Object.assign({}, state, {id: action.id})
+            return {...state, 
+                arr: action.peyload
+                || false};
             
         default:
             return state;

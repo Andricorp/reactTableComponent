@@ -1,4 +1,4 @@
-import {UNAUTHENTICATED} from '../actions/actions'
+import {UNAUTHENTICATED} from '../constants'
 export default function signOutAction() {
   localStorage.clear();
   return {

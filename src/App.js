@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Table from "./components/Table"
-import Search from "./components/Search.js"
-import Header from './components/Header';
+import Header from './presentationals/Header';
 import Router from './Router';
 
 class App extends Component {

@@ -13,8 +13,12 @@ import thunk from 'redux-thunk';
 import {reducers} from './reducers';
 
 
-import { AUTHENTICATED } from './actions/actions';
+import { AUTHENTICATED } from './constants';
 
+const store = createStore(
+  reducers,
+  applyMiddleware(thunk)
+);
 
 const user = localStorage.getItem('user');
 if(user) {
@@ -23,10 +27,6 @@ if(user) {
 
 
 
-const store = createStore(
-  reducers,
-  applyMiddleware(thunk)
-);
 
 store.subscribe(() => console.log(store.getState()))
 

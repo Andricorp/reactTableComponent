@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Search from '../components/Search';
-import Table from '../components/Table';
+// import Search from '../presentationals/Search';
+import Table from '../presentationals/Table';
 
 class Register extends Component{
     render(){
